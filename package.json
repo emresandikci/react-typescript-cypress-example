@@ -42,7 +42,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": [
+    "src/**/*.{ts,tsx}": [
       "yarn format",
       "yarn lint:fix",
       "yarn validate"
