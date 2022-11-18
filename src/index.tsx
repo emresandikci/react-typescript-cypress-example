@@ -1,3 +1,4 @@
+import { RouteContainer } from 'containers';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -8,18 +9,16 @@ import './index.css';
 function App() {
   return (
     <div>
-      <header className="text-white">bb-fc-17112022</header>
+      <RouteContainer />
     </div>
   );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('bb-fc-17112022') as HTMLElement);
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
