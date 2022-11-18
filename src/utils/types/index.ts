@@ -8,7 +8,7 @@ export type InitialState<TData> = {
   error: string | object | null;
   data?: TData;
 };
-
+export type IdentityKey = number | string | undefined;
 export interface IEntityBase {
-  readonly id: string | number;
+  id: IdentityKey;
 }
