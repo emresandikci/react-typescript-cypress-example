@@ -33,7 +33,6 @@
     "prepare": "husky install",
     "lint": "npx eslint src",
     "lint:fix": "yarn lint --fix",
-    "lint:watch": "esw src -w --color",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,json}\"",
     "validate": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,json}\" && yarn lint"
   },
@@ -44,7 +43,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
+    "src/**/*.{js,jsx,ts,tsx,css,json}": [
       "yarn format",
       "yarn lint:fix",
       "yarn validate"
