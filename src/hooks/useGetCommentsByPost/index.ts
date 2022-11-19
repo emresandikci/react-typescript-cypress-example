@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from 'store';
 import { getCommentsByPost } from 'store/actions/comments';
 
-import { IdentityKey, InitialState } from 'utils/types';
-import { IComment } from 'utils/types/comment';
+import { IdentityKey, IHooksReturnState, InitialState } from 'utils/types';
+import { CommentState, IComment } from 'utils/types/comment';
 
 type UseComment = {
   autoFetch?: boolean;
@@ -14,10 +14,10 @@ type UseComment = {
 export default function useGetCommentsByPost(
   postId: IdentityKey,
   options: UseComment = { autoFetch: true }
-): InitialState<IComment[]> {
+): IHooksReturnState<CommentState, IdentityKey> {
   const dispatch = useDispatch<AppDispatch<IComment>>();
 
-  const { data, isLoading, error } = useSelector<RootState, InitialState<IComment[]>>(
+  const { data, isLoading, error } = useSelector<RootState, InitialState<CommentState>>(
     (state) => state.comments
   );
 
@@ -25,5 +25,7 @@ export default function useGetCommentsByPost(
     if (options?.autoFetch && postId) dispatch(getCommentsByPost(postId));
   }, [dispatch, options.autoFetch, postId]);
 
-  return useMemo(() => ({ data, isLoading, error }), [data]);
+  const reFetch = () => dispatch(getCommentsByPost(postId));
+
+  return useMemo(() => ({ data, isLoading, error, reFetch: reFetch }), [data]);
 }

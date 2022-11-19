@@ -1,20 +1,30 @@
+import { AnyAction } from 'redux';
 import { commentTypes } from 'store/actionTypes';
 import { Action, InitialState } from 'utils/types';
-import { IComment } from 'utils/types/comment';
+import { CommentState, IComment } from 'utils/types/comment';
 
 const {
   GET_COMMENTS_BY_POST_ID,
   GET_COMMENTS_BY_POST_ID_SUCCEDED,
   GET_COMMENTS_BY_POST_ID_FAILED,
+  ADD_COMMENT,
+  ADD_COMMENT_SUCCEDED,
+  ADD_COMMENT_FAILED,
 } = commentTypes;
 
-const initialState: InitialState<IComment[]> = {
+const initialState: InitialState<CommentState> = {
   isLoading: false,
   error: null,
-  data: [],
+  data: {
+    comments: null,
+    comment: null,
+  },
 };
 
-export default function commentsByPostReducer(state = initialState, action: Action<IComment[]>) {
+export default function commentsByPostReducer(
+  state = initialState,
+  action: AnyAction
+): InitialState<CommentState> {
   switch (action.type) {
     case GET_COMMENTS_BY_POST_ID:
       return {
@@ -24,7 +34,10 @@ export default function commentsByPostReducer(state = initialState, action: Acti
     case GET_COMMENTS_BY_POST_ID_SUCCEDED:
       return {
         ...state,
-        data: action.payload,
+        data: {
+          ...state.data,
+          comments: action.payload,
+        },
         isLoading: false,
       };
     case GET_COMMENTS_BY_POST_ID_FAILED:
@@ -33,29 +46,27 @@ export default function commentsByPostReducer(state = initialState, action: Acti
         error: action.payload,
         isLoading: false,
       };
+    case ADD_COMMENT:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case ADD_COMMENT_SUCCEDED:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          comment: action.payload,
+        },
+        isLoading: false,
+      };
+    case ADD_COMMENT_FAILED:
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
+      };
+    default:
+      return state;
   }
-  return state;
 }
-
-// export default function commentsReducer(state = initialState, action: Action<IComment[]>) {
-//   switch (action.type) {
-//     case GET_COMMENTS:
-//       return {
-//         ...state,
-//         isLoading: true,
-//       };
-//     case GET_COMMENTS_SUCCEDED:
-//       return {
-//         ...state,
-//         data: action.payload,
-//         isLoading: false,
-//       };
-//     case GET_COMMENTS_FAILED:
-//       return {
-//         ...state,
-//         error: action.payload,
-//         isLoading: false,
-//       };
-//   }
-//   return state;
-// }

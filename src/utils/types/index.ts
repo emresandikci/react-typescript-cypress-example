@@ -1,14 +1,18 @@
 export type Action<TPayload> = {
   type: string;
-  payload?: TPayload | Array<TPayload> | object | unknown | null;
+  payload?: TPayload | TPayload[] | null;
 };
 
 export type InitialState<TData> = {
   isLoading: boolean;
-  error: string | object | null;
+  error: any;
   data?: TData;
 };
 export type IdentityKey = number | string | undefined;
 export interface IEntityBase {
   id: IdentityKey;
+}
+
+export interface IHooksReturnState<TData, TParams> extends InitialState<TData> {
+  reFetch: (params?: TParams) => {};
 }

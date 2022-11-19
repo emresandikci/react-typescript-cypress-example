@@ -3,14 +3,16 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from 'store';
 import { getPosts } from 'store/actions/posts';
-import { InitialState } from 'utils/types';
+import { IHooksReturnState, InitialState } from 'utils/types';
 import { IPost } from 'utils/types/post';
 
 type UsePost = {
   autoFetch?: boolean;
 };
 
-export default function useGetPosts(options: UsePost = { autoFetch: true }): InitialState<IPost[]> {
+export default function useGetPosts(
+  options: UsePost = { autoFetch: true }
+): IHooksReturnState<IPost[], any> {
   const dispatch = useDispatch<AppDispatch<IPost>>();
 
   const { data, isLoading, error } = useSelector<RootState, InitialState<IPost[]>>(
@@ -21,5 +23,7 @@ export default function useGetPosts(options: UsePost = { autoFetch: true }): Ini
     if (options?.autoFetch) dispatch(getPosts());
   }, [options?.autoFetch, dispatch]);
 
-  return useMemo(() => ({ data, isLoading, error }), [data]);
+  const reFetch = () => dispatch(getPosts());
+
+  return useMemo(() => ({ data, isLoading, error, reFetch: reFetch }), [data]);
 }
