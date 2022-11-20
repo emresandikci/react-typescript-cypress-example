@@ -5,20 +5,22 @@ import classNames from 'classnames';
 import { Button } from 'ui';
 import { ReactComponent as IconClose } from 'assets/icons/close.svg';
 import { AnimatePresence, motion } from 'framer-motion';
-interface IModalProps {
+import Title from 'components/title';
+export interface IModalProps {
   isOpen?: boolean;
   onClose?: () => void;
 }
 
 type Ref = HTMLDivElement | null;
 
-type ChildProps = Omit<IModalProps, 'isOpen'>;
+interface ChildProps extends Omit<IModalProps, 'isOpen'> {
+  title?: string | React.ReactNode;
+}
 
 const Modal = ({
   className = '',
   children,
   isOpen = false,
-
   onClose,
   ...props
 }: IModalProps & React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>) => {
@@ -74,7 +76,7 @@ const Modal = ({
 };
 
 const Top = React.forwardRef<Ref, ChildProps & React.HTMLAttributes<HTMLElement>>(
-  ({ className = '', children = null, onClose }, ref) => {
+  ({ className = '', children = null, title, onClose }, ref) => {
     const topClassNames = classNames({
       'modal-top': true,
       [className]: className,
@@ -106,14 +108,16 @@ const Top = React.forwardRef<Ref, ChildProps & React.HTMLAttributes<HTMLElement>
         className={topClassNames}
         ref={ref}
       >
-        <ContentContainer onClose={onClose}>{children}</ContentContainer>
+        <ContentContainer title={title} onClose={onClose}>
+          {children}
+        </ContentContainer>
       </motion.div>
     );
   }
 );
 
 const Bottom = React.forwardRef<Ref, ChildProps & React.HTMLAttributes<HTMLElement>>(
-  ({ className = '', children = null, onClose }, ref) => {
+  ({ className = '', children = null, title, onClose }, ref) => {
     const bottomClassNames = classNames({
       'modal-bottom': true,
       [className]: className,
@@ -145,14 +149,16 @@ const Bottom = React.forwardRef<Ref, ChildProps & React.HTMLAttributes<HTMLEleme
           bounce: 0,
         }}
       >
-        <ContentContainer onClose={onClose}>{children}</ContentContainer>
+        <ContentContainer title={title} onClose={onClose}>
+          {children}
+        </ContentContainer>
       </motion.div>
     );
   }
 );
 
 const Left = React.forwardRef<Ref, ChildProps & React.HTMLAttributes<HTMLElement>>(
-  ({ className = '', children = null, onClose }, ref) => {
+  ({ className = '', children = null, title, onClose }, ref) => {
     const leftClassNames = classNames({
       'modal-left': true,
       [className]: className,
@@ -181,14 +187,16 @@ const Left = React.forwardRef<Ref, ChildProps & React.HTMLAttributes<HTMLElement
           bounce: 0,
         }}
       >
-        <ContentContainer onClose={onClose}>{children}</ContentContainer>
+        <ContentContainer title={title} onClose={onClose}>
+          {children}
+        </ContentContainer>
       </motion.div>
     );
   }
 );
 
 const Right = React.forwardRef<Ref, ChildProps & React.HTMLAttributes<HTMLElement>>(
-  ({ className = '', children = null, onClose }, ref) => {
+  ({ className = '', children = null, title, onClose }, ref) => {
     const rightClassNames = classNames({
       'modal-right': true,
       [className]: className,
@@ -217,21 +225,25 @@ const Right = React.forwardRef<Ref, ChildProps & React.HTMLAttributes<HTMLElemen
         }}
         ref={ref}
       >
-        <ContentContainer onClose={onClose}>{children}</ContentContainer>
+        <ContentContainer title={title} onClose={onClose}>
+          {children}
+        </ContentContainer>
       </motion.div>
     );
   }
 );
 
 const ContentContainer = ({
+  title,
   children,
   onClose,
 }: ChildProps & React.HTMLAttributes<HTMLElement>) => (
-  <div className="relative">
-    <div className="absolute right-0 top-0 z-10">
+  <div className="h-full">
+    <div className="flex w-full items-center justify-between">
+      {title && <Title className="border-none">{title}</Title>}
       <Button color="gray" variant="circle" onClick={onClose} icon={IconClose} />
     </div>
-    <div className="pt-6">{children}</div>
+    <div className="mt-6">{children}</div>
   </div>
 );
 
