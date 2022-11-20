@@ -1,8 +1,9 @@
-import { Comments, Posts } from 'components';
+import { Comments, Posts } from 'pages';
+import './index.css';
 
 export default function Home() {
   return (
-    <div className="flex gap-x-4">
+    <div className="home-container">
       <Posts />
       <Comments />
     </div>
