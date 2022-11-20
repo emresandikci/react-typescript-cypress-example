@@ -1,0 +1,23 @@
+.spinner-size-xs {
+  @apply h-3 !w-3 border-2;
+}
+.spinner-size-sm {
+  @apply h-4 !w-4 border-2;
+}
+.spinner-size-md {
+  @apply h-10 !w-10 border-4;
+}
+.spinner-size-lg {
+  @apply h-14 !w-14 border-4;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  color: #fff;
+}

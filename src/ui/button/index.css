@@ -1,0 +1,186 @@
+.btn {
+  @apply inline-flex cursor-pointer items-center
+      justify-center
+      rounded-lg
+      text-center
+      font-medium
+      transition-colors duration-300;
+}
+
+/* variants */
+.btn.btn-primary {
+  @apply bg-violet-300 px-5
+  py-2.5 
+  text-center
+  text-sm font-medium text-violet-900 hover:bg-violet-500 active:bg-violet-600;
+}
+
+.btn.btn-secondary {
+  @apply bg-sky-200 text-sky-900
+  hover:bg-sky-300 
+  active:bg-sky-500;
+}
+
+.btn.btn-red {
+  @apply bg-red-100 text-red-900
+  hover:bg-red-300 
+  active:bg-red-500;
+}
+
+.btn.btn-gray {
+  @apply bg-gray-100 text-gray-900
+  hover:bg-gray-300 
+  active:bg-gray-500;
+}
+
+.btn.btn-light {
+  @apply bg-gray-50 text-gray-900 shadow-bb
+  hover:bg-gray-200 
+  active:bg-gray-400;
+}
+
+.btn.btn-yellow {
+  @apply bg-yellow-100 text-yellow-900
+  hover:bg-yellow-300 
+  active:bg-yellow-500;
+}
+/* variants */
+
+/* ghost */
+.btn.btn-ghost {
+  @apply bg-transparent hover:bg-transparent;
+}
+.btn.btn-primary.btn-ghost {
+  @apply text-violet-500
+  hover:text-violet-600
+  active:text-violet-800;
+}
+.btn.btn-secondary.btn-ghost {
+  @apply text-sky-500
+  hover:text-sky-600
+  active:text-sky-800;
+}
+.btn.btn-red.btn-ghost {
+  @apply text-red-500
+  hover:text-red-600
+  active:text-red-800;
+}
+/* circle */
+.btn.btn-circle {
+  @apply rounded-full hover:shadow-bb;
+}
+.btn.btn-circle.btn-primary {
+  @apply bg-violet-100 px-5
+  py-2.5 
+  text-center
+  text-sm font-medium text-violet-500 hover:bg-violet-50 active:bg-violet-200;
+}
+
+.btn.btn-circle.btn-secondary {
+  @apply bg-sky-100 text-sky-500
+  hover:bg-sky-50 
+  active:bg-sky-200;
+}
+
+.btn.btn-circle.btn-red {
+  @apply bg-red-100 text-red-500
+  hover:bg-red-50 
+  active:bg-red-200;
+}
+
+.btn.btn-circle.btn-gray {
+  @apply bg-gray-100 text-gray-500
+  hover:bg-gray-50 
+  active:bg-gray-200;
+}
+
+.btn.btn-circle.btn-light {
+  @apply bg-gray-50 text-gray-500 shadow-bb
+  hover:bg-gray-200 
+  active:bg-gray-200;
+}
+
+.btn.btn-circle.btn-yellow {
+  @apply bg-yellow-100 text-yellow-500
+  hover:bg-yellow-50 
+  active:bg-yellow-200;
+}
+
+/* status */
+.btn.btn-disabled {
+  @apply cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-400;
+}
+.btn.btn-circle.btn-disabled {
+  @apply cursor-not-allowed hover:shadow-none disabled:bg-gray-200
+  disabled:text-gray-400;
+}
+
+.btn.btn-ghost.btn-disabled {
+  @apply bg-transparent 
+  text-gray-400
+  hover:text-gray-400;
+}
+
+/* icons */
+.btn svg {
+  @apply h-full w-full fill-current stroke-current;
+}
+
+/* sizes */
+.btn.btn-lg {
+  @apply py-[14px] px-8
+    text-base leading-6;
+}
+
+.btn.btn-md {
+  @apply px-6 py-3
+    text-sm leading-5;
+}
+
+.btn.btn-sm {
+  @apply px-4 py-2
+      text-xs leading-4;
+}
+
+.btn-lg svg {
+  @apply w-5;
+}
+
+.btn-md svg {
+  @apply w-[18px];
+}
+
+.btn-sm svg {
+  @apply w-[14px];
+}
+
+.btn-lg .loading {
+  @apply w-5;
+}
+
+.btn-md .loading {
+  @apply w-[18px];
+}
+
+.btn-sm .loading {
+  @apply w-[14px];
+}
+
+.btn.btn-circle.btn-lg {
+  @apply p-[18px]
+    text-base leading-6;
+}
+
+.btn.btn-circle.btn-md {
+  @apply p-[15px]
+    text-sm leading-5;
+}
+
+.btn.btn-circle.btn-sm {
+  @apply p-3
+      text-xs leading-4;
+}
+
+.btn.is-loading {
+  @apply pointer-events-none cursor-not-allowed opacity-60;
+}

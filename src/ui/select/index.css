@@ -1,0 +1,46 @@
+.bb__control {
+  @apply !rounded-lg !border-none text-sm font-medium leading-5 text-gray-900 shadow-bb;
+}
+.bb__indicator-separator {
+  @apply hidden;
+}
+.bb__control .bb__dropdown-indicator {
+  @apply text-gray-500;
+}
+.bb__control.bb__control--is-focused.bb__control--menu-is-open {
+  @apply !border-none bg-gray-100 !outline-none;
+}
+.bb__control.bb__control--menu-is-open .bb__dropdown-indicator {
+  @apply rotate-180 transform text-gray-500;
+}
+.bb__control.bb__control--menu-is-open {
+  @apply border-none !outline-none hover:border-none;
+}
+
+.bb__control {
+  @apply !border-none bg-gray-100 !outline-none hover:border-none focus:border-none;
+}
+
+.bb__menu {
+  @apply !rounded-xl;
+}
+.bb__menu .bb__menu-list {
+  @apply px-3;
+}
+.bb__menu .bb__menu-list div {
+  @apply cursor-pointer border-b border-gray-200 py-4 hover:bg-gray-50;
+}
+.bb__menu .bb__menu-list div {
+  @apply cursor-pointer border-b border-gray-200 py-4 hover:bg-gray-50;
+}
+.bb__menu .bb__menu-list div:last-child {
+  @apply border-none py-4;
+}
+
+.bb__menu .bb__menu-list .bb__option[class$='-option'] {
+  @apply active:bg-gray-100;
+}
+.bb__menu .bb__menu-list .bb__option--is-selected,
+.bb__option--is-focused {
+  @apply bg-gray-100 text-gray-900 active:bg-gray-100;
+}

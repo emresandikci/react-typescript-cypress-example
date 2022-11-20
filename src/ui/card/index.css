@@ -1,0 +1,16 @@
+.card {
+  @apply rounded-xl
+  bg-white p-4 shadow-bb;
+}
+
+.card .card-header {
+  @apply mb-2 text-base font-semibold;
+}
+
+.card .card-body {
+  @apply text-sm font-medium;
+}
+
+.card .card-footer {
+  @apply mt-4 text-base font-semibold;
+}

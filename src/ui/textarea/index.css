@@ -1,0 +1,51 @@
+.textarea {
+  @apply m-0 box-border w-full rounded-lg
+  border border-solid border-gray-200
+  bg-gray-50
+  px-3
+  py-[14px] text-sm font-medium leading-5
+  text-gray-700 placeholder-slate-500 
+  focus:border-purple-600 focus:bg-white focus:outline-none
+  disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-400;
+}
+.textarea-label {
+  @apply mb-1 text-[14px] font-medium text-gray-500;
+}
+.textarea-caption {
+  @apply mt-1 flex 
+  justify-between text-xs font-medium text-gray-400;
+}
+.textarea-error {
+  @apply text-red-600;
+}
+
+.form-element span.icon svg {
+  @apply fill-gray-500 stroke-gray-500 text-gray-500;
+}
+
+.form-element:focus-within .textarea-label {
+  @apply text-purple-700;
+}
+
+.form-element:focus-within label.label-error .textarea-label {
+  @apply text-gray-500;
+}
+
+.form-element textarea:disabled ~ span svg {
+  @apply text-gray-400;
+}
+
+.form-element span.icon.has-error svg {
+  @apply fill-red-600 stroke-red-600 text-red-600;
+}
+
+textarea.textarea-error,
+textarea:focus.textarea-error {
+  @apply border-red-600 bg-white;
+}
+.has-right-icon {
+  @apply pr-9;
+}
+.has-left-icon {
+  @apply pl-9;
+}

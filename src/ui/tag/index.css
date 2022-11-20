@@ -1,0 +1,81 @@
+.tag {
+  @apply relative inline-flex items-center
+  justify-center 
+  rounded-full 
+  text-white;
+}
+
+/* sizes */
+
+.tag.tag-sm {
+  @apply px-[13px] py-[5px] text-xs leading-6;
+}
+.tag.tag-md {
+  @apply px-[17px] py-2 text-sm leading-5;
+}
+.tag.tag-lg {
+  @apply px-[25px] py-[14px] text-base leading-4;
+}
+.tag.tag-sm svg {
+  @apply w-[14px];
+}
+.tag.tag-md svg {
+  @apply w-4;
+}
+.tag.tag-lg svg {
+  @apply w-4;
+}
+
+/* colors */
+
+.tag.tag-primary {
+  @apply bg-green-300 text-green-900;
+}
+.tag.tag-primary-dark,
+.tag.tag-primary-dark svg {
+  @apply bg-green-500  text-green-100;
+}
+.tag.tag-primary-light,
+.tag.tag-primary-light svg {
+  @apply bg-green-100 text-green-900;
+}
+
+.tag.tag-secondary {
+  @apply bg-purple-300 text-purple-900;
+}
+.tag.tag-secondary-dark {
+  @apply bg-purple-500 text-purple-100;
+}
+.tag.tag-secondary-light {
+  @apply bg-purple-100 text-purple-900;
+}
+
+.tag.tag-red {
+  @apply bg-red-300 text-red-900;
+}
+.tag.tag-red-dark {
+  @apply bg-red-500 text-red-100;
+}
+.tag.tag-red-light {
+  @apply bg-red-100 text-red-900;
+}
+
+.tag.tag-yellow {
+  @apply bg-yellow-300 text-yellow-900;
+}
+.tag.tag-yellow-dark {
+  @apply bg-yellow-500 text-yellow-100;
+}
+.tag.tag-yellow-light {
+  @apply bg-yellow-100 text-yellow-900;
+}
+
+.tag.tag-gray {
+  @apply bg-gray-300 text-gray-900;
+}
+.tag.tag-gray-dark {
+  @apply bg-gray-500 text-gray-100;
+}
+.tag.tag-gray-light {
+  @apply bg-gray-100 text-gray-900;
+}

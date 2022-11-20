@@ -1,8 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  @import url('ui/button/index.css');
+  @import url('ui/card/index.css');
+  @import url('ui/input/index.css');
+  @import url('ui/tag/index.css');
+  @import url('ui/textarea/index.css');
+  @import url('ui/loading/index.css');
+  @import url('ui/select/index.css');
+  @import url('ui/modal/index.css');
+}
 
+@layer {
+  * {
+    box-sizing: border-box;
+  }
+}
 html,
 body {
-  @apply bg-slate-400;
+  @apply bg-gray-100;
+}
+a {
+  text-decoration: none;
+}
+.form-element-text {
+  @apply text-xs font-medium text-gray-400;
+}
+
+.form-element-error {
+  @apply text-red-600;
 }
