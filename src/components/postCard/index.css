@@ -1,0 +1,7 @@
+.post-card-content {
+  @apply flex flex-col gap-y-4;
+}
+
+.post-card-content .title {
+  @apply text-lg font-semibold first-letter:uppercase;
+}

@@ -1,0 +1,6 @@
+.post-detail-container {
+  @apply flex flex-col gap-y-4;
+}
+.post-detail-container .title {
+  @apply mb-2 text-left text-3xl font-semibold first-letter:uppercase;
+}
