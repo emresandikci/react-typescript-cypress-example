@@ -45,7 +45,7 @@ const Button = ({
   leftIcon,
   rightIcon,
   isLoading = false,
-
+  type = 'button',
   ...props
 }: IButtonProps &
   React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) => {
@@ -61,7 +61,7 @@ const Button = ({
 
   if (variant !== VARIANTS.circle) {
     return (
-      <button className={classes} disabled={disabled} {...props}>
+      <button type={type} className={classes} disabled={disabled} {...props}>
         {
           <Loading
             isLoading={isLoading}
