@@ -1,5 +1,8 @@
+import classNames from 'classnames';
 import { BaseComponentProps } from 'utils/types';
+import './index.css';
 
-export default function Title({ children }: BaseComponentProps) {
-  return <p className="border-b border-gray-300 pb-4 text-xl font-semibold">{children}</p>;
+export default function Title({ children, className }: BaseComponentProps) {
+  const titleClassNames = classNames('title-container', className);
+  return <div className={titleClassNames}>{children}</div>;
 }

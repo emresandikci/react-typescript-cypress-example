@@ -1,0 +1,3 @@
+.title-container {
+  @apply border-b border-gray-300 pb-4 text-xl font-semibold;
+}
