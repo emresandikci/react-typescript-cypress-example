@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-interface IUseModal {
+interface IUseModalProps {
   isOpen?: boolean;
   shouldBeBlockScroll?: boolean;
 }
@@ -9,9 +9,9 @@ const HIDDEN = 'overflow:hidden';
 const VISIBLE = 'overflow:auto';
 
 export default function useModal({
-  shouldBeBlockScroll = false,
+  shouldBeBlockScroll = true,
   isOpen = false,
-}: IUseModal): [boolean, () => void, (isOpen: boolean) => void] {
+}: IUseModalProps): [boolean, () => void, (isOpen: boolean) => void] {
   const [isActive, setIsActive] = useState(isOpen);
 
   useEffect(() => {
