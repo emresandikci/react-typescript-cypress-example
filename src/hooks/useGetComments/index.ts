@@ -5,7 +5,7 @@ import { AppDispatch, RootState } from 'store';
 import { getComments } from 'store/actions/comments';
 
 import { InitialState } from 'utils/types';
-import { IComment } from 'utils/types/comment';
+import { CommentState, IComment } from 'utils/types/comment';
 
 type UseComment = {
   autoFetch?: boolean;
@@ -14,8 +14,8 @@ type UseComment = {
 export default function useGetComments(options: UseComment = { autoFetch: true }) {
   const dispatch = useDispatch<AppDispatch<IComment>>();
 
-  const { data, isLoading, error } = useSelector<RootState, InitialState<IComment[]>>(
-    (state) => state.posts
+  const { data, isLoading, error } = useSelector<RootState, InitialState<CommentState>>(
+    (state) => state.comments
   );
 
   useEffect(() => {

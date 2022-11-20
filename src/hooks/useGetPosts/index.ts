@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from 'store';
 import { getPosts } from 'store/actions/posts';
 import { IHooksReturnState, InitialState } from 'utils/types';
-import { IPost } from 'utils/types/post';
+import { IPost, PostState } from 'utils/types/post';
 
 type UsePost = {
   autoFetch?: boolean;
@@ -12,10 +12,10 @@ type UsePost = {
 
 export default function useGetPosts(
   options: UsePost = { autoFetch: true }
-): IHooksReturnState<IPost[], any> {
+): IHooksReturnState<PostState, any> {
   const dispatch = useDispatch<AppDispatch<IPost>>();
 
-  const { data, isLoading, error } = useSelector<RootState, InitialState<IPost[]>>(
+  const { data, isLoading, error } = useSelector<RootState, InitialState<PostState>>(
     (state) => state.posts
   );
 
