@@ -1,7 +1,7 @@
 import { AnyAction } from 'redux';
 import { commentTypes } from 'store/actionTypes';
-import { Action, InitialState } from 'utils/types';
-import { CommentState, IComment } from 'utils/types/comment';
+import { InitialState } from 'utils/types';
+import { CommentState } from 'utils/types/comment';
 
 const {
   GET_COMMENTS_BY_POST_ID,

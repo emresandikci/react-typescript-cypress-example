@@ -1,16 +1,23 @@
+import { AnyAction } from 'redux';
 import { postTypes } from 'store/actionTypes';
-import { Action, InitialState } from 'utils/types';
-import { IPost } from 'utils/types/post';
+import { InitialState } from 'utils/types';
+import { PostState } from 'utils/types/post';
 
 const { GET_POSTS, GET_POSTS_SUCCEDED, GET_POSTS_FAILED } = postTypes;
 
-const initialState: InitialState<IPost[]> = {
+const initialState: InitialState<PostState> = {
   isLoading: false,
   error: null,
-  data: [],
+  data: {
+    posts: null,
+    post: null,
+  },
 };
 
-export default function postReducer(state = initialState, action: Action<IPost[]>) {
+export default function postReducer(
+  state = initialState,
+  action: AnyAction
+): InitialState<PostState> {
   switch (action.type) {
     case GET_POSTS:
       return {
@@ -20,7 +27,10 @@ export default function postReducer(state = initialState, action: Action<IPost[]
     case GET_POSTS_SUCCEDED:
       return {
         ...state,
-        data: action.payload,
+        data: {
+          ...state.data,
+          posts: action.payload,
+        },
         isLoading: false,
       };
     case GET_POSTS_FAILED:
@@ -30,7 +40,6 @@ export default function postReducer(state = initialState, action: Action<IPost[]
         isLoading: false,
       };
     default:
-      break;
+      return state;
   }
-  return state;
 }

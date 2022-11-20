@@ -1,5 +1,5 @@
 import axios from 'axios';
-import store, { AppDispatch, RootState } from 'store';
+import store, { AppDispatch } from 'store';
 import { commentTypes } from 'store/actionTypes';
 import { HTTP_STATUS } from 'utils/enums';
 import { IdentityKey } from 'utils/types';
