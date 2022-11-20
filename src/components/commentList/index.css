@@ -1,0 +1,11 @@
+.comment-list-container {
+  @apply flex flex-col gap-y-4;
+}
+
+.comment-list-container .title {
+  @apply flex items-center justify-between;
+}
+
+.comment-list-container .comment-list {
+  @apply flex flex-col gap-y-4;
+}

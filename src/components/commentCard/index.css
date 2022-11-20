@@ -1,0 +1,15 @@
+.comment-card-container {
+  @apply flex flex-col gap-y-4 !shadow-none hover:shadow-bb;
+}
+
+.comment-footer {
+  @apply flex items-center justify-between;
+}
+
+.comment-card-container .comment-tags {
+  @apply flex w-1/2 flex-wrap gap-2;
+}
+
+.comment-card-container .comment-actions {
+  @apply flex items-center gap-x-1;
+}
