@@ -10,7 +10,7 @@ export interface IComment extends IEntityBase {
   parentId?: number;
 }
 
-export type CommentPayload = Omit<IComment, 'name' | 'email' | 'id'>;
+export type CommentPayload = Omit<IComment, 'id' | 'tags'>;
 
 export type CommentState = {
   comments?: IComment[] | null | undefined;

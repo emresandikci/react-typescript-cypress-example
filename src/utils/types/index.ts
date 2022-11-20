@@ -1,3 +1,7 @@
+export type BaseComponentProps = {
+  children?: React.ReactNode;
+};
+
 export type Action<TPayload> = {
   type: string;
   payload?: TPayload | TPayload[] | null;

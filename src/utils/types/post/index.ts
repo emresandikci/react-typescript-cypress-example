@@ -5,3 +5,10 @@ export interface IPost extends IEntityBase {
   title: string;
   body: string;
 }
+
+export type PostPayload = Omit<IPost, 'id' | 'userId'>;
+
+export type PostState = {
+  posts?: IPost[] | null | undefined;
+  post?: IPost | null | undefined;
+};
