@@ -1,0 +1,7 @@
+.create-comment-content {
+  @apply flex flex-col gap-y-2;
+}
+
+.create-comment-content .create-comment-footer {
+  @apply flex justify-end;
+}
