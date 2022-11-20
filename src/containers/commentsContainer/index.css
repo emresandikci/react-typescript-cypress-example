@@ -1,0 +1,3 @@
+.comments-container {
+  @apply flex h-screen flex-1 flex-col gap-y-6 overflow-y-auto p-4;
+}
