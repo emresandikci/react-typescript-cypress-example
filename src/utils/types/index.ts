@@ -1,5 +1,6 @@
 export type BaseComponentProps = {
   children?: React.ReactNode;
+  className?: string;
 };
 
 export type Action<TPayload> = {

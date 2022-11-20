@@ -1,6 +1,6 @@
 import axios from 'axios';
 import store from 'store';
-import {} from 'store/actionTypes';
+
 const headers = {
   'Content-Type': 'application/json',
 };
