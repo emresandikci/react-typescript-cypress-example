@@ -1,9 +1,7 @@
 import { RouteContainer } from 'containers';
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import store from 'store';
-// import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 function App() {
