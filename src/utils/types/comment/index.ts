@@ -1,16 +1,16 @@
 import { IEntityBase } from '..';
 
 export interface IComment extends IEntityBase {
-  postId: number;
   id: number;
-  name: string;
-  email: string;
-  body: string;
-  tags?: string[];
-  parentId?: number;
+  postId?: number | null;
+  name?: string | null;
+  email?: string | null;
+  body?: string | null;
+  tags?: string[] | null;
+  parentId?: number | null;
 }
 
-export type CommentPayload = Omit<IComment, 'id' | 'tags'>;
+export type CommentPayload = Omit<IComment, 'id'>;
 
 export type CommentState = {
   comments?: IComment[] | null | undefined;

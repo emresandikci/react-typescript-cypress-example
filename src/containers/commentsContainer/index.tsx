@@ -49,9 +49,7 @@ export default function CommentsContainer({ children, innerRef, ...props }: ICom
         {children}
       </div>
       {isCreateCommentModalActive && <CreateCommentModal onClose={toggleCreateCommentModal} />}
-      {isAddTagPopupActive && (
-        <AddTagPopup isOpen={isAddTagPopupActive} onClose={toggleAddTagPopup} />
-      )}
+      {isAddTagPopupActive && <AddTagPopup isOpen={isAddTagPopupActive} />}
     </CommentContext.Provider>
   );
 }
