@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { MdOutlineClose as IconClose } from 'react-icons/md';
 
 import { Card, Input, Tag } from 'ui';
@@ -9,16 +9,23 @@ export interface ITagSelector {
   suggestions: string[];
   placeholder?: string;
   onChange: (tags: string[]) => void;
+  selected: string[];
 }
 
 interface IRemoveableTag extends ITagProps, BaseComponentProps {
   onDelete: (value: string) => void;
 }
 
-export default function TagSelector({ suggestions, placeholder, onChange }: ITagSelector) {
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+export default function TagSelector({
+  suggestions,
+  placeholder,
+  selected,
+  onChange,
+}: ITagSelector) {
+  const [selectedTags, setSelectedTags] = useState<string[]>(selected || []);
   const [text, setText] = useState<string>('');
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
@@ -34,6 +41,7 @@ export default function TagSelector({ suggestions, placeholder, onChange }: ITag
       const updateTags = [...prevTags, tag.replace(',', '')];
       onChange(updateTags);
       setText('');
+      inputRef.current?.focus();
       return updateTags;
     });
   };
@@ -52,7 +60,7 @@ export default function TagSelector({ suggestions, placeholder, onChange }: ITag
     if (e.key === 'Enter' && text) {
       onSelectTag(text);
     }
-    if (e.key === 'Backspace' && selectedTags.length > 0) {
+    if (e.key === 'Backspace' && selectedTags.length > 0 && !text) {
       onDelete(selectedTags?.pop() as string);
     }
   };
@@ -75,6 +83,7 @@ export default function TagSelector({ suggestions, placeholder, onChange }: ITag
             autoFocus
             onChange={onChangeText}
             onKeyUp={onKeyUp}
+            innerRef={inputRef}
           />
         </div>
       </div>

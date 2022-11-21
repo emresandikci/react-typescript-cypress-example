@@ -13,3 +13,6 @@
 .comment-card-container .comment-actions {
   @apply flex items-center gap-x-1;
 }
+.comment-card-container .user-email {
+  @apply border-b pb-2 text-sm font-semibold;
+}

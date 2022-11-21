@@ -1,10 +1,10 @@
 import { Button, Card, Tag } from 'ui';
 import { IComment } from 'utils/types/comment';
+import { useCommentContext } from 'containers/commentsContainer';
 import './index.css';
 
 //icons
 import { MdOutlineReply as IconReply, MdTag as IconTag } from 'react-icons/md';
-import { useCommentContext } from 'containers/commentsContainer';
 
 export default function CommentCard(comment: IComment) {
   const { toggleAddTagPopup, setSelectedComment } = useCommentContext();
@@ -14,10 +14,11 @@ export default function CommentCard(comment: IComment) {
     toggleAddTagPopup();
   };
 
-  const { id, body, tags } = comment;
+  const { id, body, tags, email } = comment;
 
   return (
     <Card key={id} className="comment-card-container">
+      {email && <p className="user-email">{email}</p>}
       <p>{body}</p>
       <div className="comment-footer">
         <div className="comment-tags">

@@ -5,3 +5,11 @@
 .post-card-content .title {
   @apply text-lg font-semibold first-letter:uppercase;
 }
+
+.post-card-content .user-information {
+  @apply border-b pb-2 text-sm font-semibold;
+}
+
+.user-information a {
+  @apply hover:text-sky-400;
+}
