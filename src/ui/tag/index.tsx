@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { SIZES } from 'ui';
 
-interface ITagProps {
+export interface ITagProps {
   size?: 'sm' | 'md' | 'lg';
   color?:
     | 'primary'

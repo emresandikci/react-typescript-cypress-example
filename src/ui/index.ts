@@ -6,6 +6,7 @@ export { default as Textarea } from './textarea';
 export { default as Loading } from './loading';
 export { default as Select } from './select';
 export { default as Modal } from './modal';
+export { default as Popup } from './popup';
 
 export enum SIZES {
   sm = 'sm',

@@ -5,3 +5,5 @@ export { default as PostDetail } from './postDetail';
 export { default as CommentList } from './commentList';
 export { default as CommentCard } from './commentCard';
 export { default as PostCard } from './postCard';
+export { default as AddTagPopup } from './addTagPopup';
+export { default as TagSelector } from './tagSelector';
