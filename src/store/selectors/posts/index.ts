@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 import { RootState } from 'store';
+import { IPost } from 'utils/types/post';
 
 const selectUsersPosts = (state: RootState) => ({
   posts: state.posts.data?.posts,
@@ -17,10 +18,11 @@ export const usePostFilterSelector = (keyword: string | number) =>
         };
       });
       return mappedPosts?.filter(
-        (post) =>
-          post.body.toLocaleLowerCase().includes(keyword.toString()) ||
-          post.userId.toString().toLocaleLowerCase() == keyword.toString() ||
-          post.title.toLocaleLowerCase().includes(keyword.toString())
+        (post: IPost) =>
+          post?.user?.name.toLocaleLowerCase().includes(keyword.toString().toLocaleLowerCase()) ||
+          post.body.toLocaleLowerCase().includes(keyword.toString().toLocaleLowerCase()) ||
+          post.userId.toString().toLocaleLowerCase() == keyword.toString().toLocaleLowerCase() ||
+          post.title.toLocaleLowerCase().includes(keyword.toString().toLocaleLowerCase())
       );
     })
   );
