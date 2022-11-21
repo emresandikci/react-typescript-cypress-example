@@ -10,6 +10,9 @@ const {
   ADD_COMMENT,
   ADD_COMMENT_SUCCEDED,
   ADD_COMMENT_FAILED,
+  UPDATE_COMMENT,
+  UPDATE_COMMENT_SUCCEDED,
+  UPDATE_COMMENT_FAILED,
 } = commentTypes;
 
 const initialState: InitialState<CommentState> = {
@@ -61,6 +64,26 @@ export default function commentsByPostReducer(
         isLoading: false,
       };
     case ADD_COMMENT_FAILED:
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false,
+      };
+    case UPDATE_COMMENT:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case UPDATE_COMMENT_SUCCEDED:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          comment: action.payload,
+        },
+        isLoading: false,
+      };
+    case UPDATE_COMMENT_FAILED:
       return {
         ...state,
         error: action.payload,

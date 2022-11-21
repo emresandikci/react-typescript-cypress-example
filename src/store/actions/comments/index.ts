@@ -15,6 +15,9 @@ const {
   ADD_COMMENT,
   ADD_COMMENT_SUCCEDED,
   ADD_COMMENT_FAILED,
+  UPDATE_COMMENT,
+  UPDATE_COMMENT_SUCCEDED,
+  UPDATE_COMMENT_FAILED,
 } = commentTypes;
 
 const BASE_API_URL = process.env.REACT_APP_API_BASE_URL;
@@ -101,6 +104,39 @@ export const addComment =
     } catch (error) {
       dispatch({
         type: ADD_COMMENT_FAILED,
+        payload: error,
+      });
+    }
+  };
+
+export const updateComment =
+  (updatedComment: CommentPayload) =>
+  async (dispatch: AppDispatch<IComment>): Promise<IComment | undefined> => {
+    try {
+      dispatch({
+        type: UPDATE_COMMENT,
+      });
+      const { status, data } = await axios.put<IComment>(
+        `${BASE_API_URL}/comments`,
+        updatedComment
+      );
+      if (status === HTTP_STATUS.CREATED) {
+        store.getState().comments.data?.comments?.push({ ...data, tags: ['test', 'test1'] });
+        dispatch({
+          type: UPDATE_COMMENT_SUCCEDED,
+          payload: data,
+        });
+        return Promise.resolve(data);
+      } else {
+        dispatch({
+          type: UPDATE_COMMENT_FAILED,
+          payload: data,
+        });
+        return Promise.reject(data);
+      }
+    } catch (error) {
+      dispatch({
+        type: UPDATE_COMMENT_FAILED,
         payload: error,
       });
     }
