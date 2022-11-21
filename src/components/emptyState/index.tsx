@@ -2,11 +2,11 @@ import { IconType } from 'react-icons/lib';
 import { MdOutlineErrorOutline as IconError } from 'react-icons/md';
 import './index.css';
 
-type EmptyState = {
+type EmptyStateType = {
   message: string;
   icon?: IconType;
 };
-export default function EmptyState({ message, icon: Icon }: EmptyState) {
+export default function EmptyState({ message, icon: Icon }: EmptyStateType) {
   return (
     <div className="empy-state-container">
       <>

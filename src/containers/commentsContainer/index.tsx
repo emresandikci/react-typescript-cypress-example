@@ -1,4 +1,4 @@
-import { useContext, createContext, useState, useEffect } from 'react';
+import { useContext, createContext, useState } from 'react';
 import { AddTagPopup, CreateCommentModal, ReplyCommentModal } from 'components';
 import { useModal } from 'hooks';
 import { BaseComponentProps } from 'utils/types';
