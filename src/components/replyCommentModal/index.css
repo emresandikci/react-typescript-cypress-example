@@ -1,0 +1,7 @@
+.reply-comment-content {
+  @apply flex flex-col gap-y-2;
+}
+
+.reply-comment-content .reply-comment-footer {
+  @apply flex justify-end;
+}

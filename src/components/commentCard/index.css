@@ -11,7 +11,7 @@
 }
 
 .comment-card-container .comment-actions {
-  @apply flex items-center gap-x-1;
+  @apply flex items-center gap-x-2;
 }
 .comment-card-container .user-email {
   @apply border-b pb-2 text-sm font-semibold;

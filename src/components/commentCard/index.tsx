@@ -6,14 +6,22 @@ import './index.css';
 //icons
 import { MdOutlineReply as IconReply, MdTag as IconTag } from 'react-icons/md';
 
-export default function CommentCard(comment: IComment) {
-  const { toggleAddTagPopup, setSelectedComment } = useCommentContext();
+interface ICommentCard {
+  totalReplies?: number;
+  comment: IComment;
+  isRepliedComment?: boolean;
+}
+export default function CommentCard({ comment, totalReplies, isRepliedComment }: ICommentCard) {
+  const { toggleAddTagPopup, setSelectedComment, toggleReplyCommentModal } = useCommentContext();
 
   const handleAddTag = () => {
     setSelectedComment(comment);
     toggleAddTagPopup();
   };
-
+  const handleReplyComment = () => {
+    setSelectedComment(comment);
+    toggleReplyCommentModal();
+  };
   const { id, body, tags, email } = comment;
 
   return (
@@ -28,14 +36,17 @@ export default function CommentCard(comment: IComment) {
             </Tag>
           ))}
         </div>
-        <div className="comment-actions">
-          <Button leftIcon={IconReply} size="sm" color="secondary">
-            Reply
-          </Button>
-          <Button leftIcon={IconTag} size="sm" color="yellow" onClick={handleAddTag}>
-            Add Tag
-          </Button>
-        </div>
+        {!isRepliedComment && (
+          <div className="comment-actions">
+            <Button leftIcon={IconReply} size="sm" color="secondary" onClick={handleReplyComment}>
+              Reply ({totalReplies})
+            </Button>
+
+            <Button leftIcon={IconTag} size="sm" color="yellow" onClick={handleAddTag}>
+              Add Tag ({tags?.length || 0})
+            </Button>
+          </div>
+        )}
       </div>
     </Card>
   );

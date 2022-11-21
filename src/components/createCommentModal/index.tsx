@@ -6,6 +6,7 @@ import { addComment } from 'store/actions/comments';
 import { Button, Card, Input, Modal, Textarea } from 'ui';
 import { IModalProps } from 'ui/modal';
 import { IComment } from 'utils/types/comment';
+import './index.css';
 
 export default function CreateCommentModal({ onClose }: IModalProps) {
   const { query } = useRouter();

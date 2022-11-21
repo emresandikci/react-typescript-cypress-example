@@ -7,3 +7,4 @@ export { default as CommentCard } from './commentCard';
 export { default as PostCard } from './postCard';
 export { default as AddTagPopup } from './addTagPopup';
 export { default as TagSelector } from './tagSelector';
+export { default as ReplyCommentModal } from './replyCommentModal';

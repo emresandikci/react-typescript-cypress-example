@@ -8,6 +8,7 @@ export interface IComment extends IEntityBase {
   body?: string | null;
   tags?: string[] | null;
   parentId?: number | null;
+  replies?: IComment[];
 }
 
 export type CommentPayload = Omit<IComment, 'id'>;

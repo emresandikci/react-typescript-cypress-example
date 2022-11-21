@@ -1,11 +1,10 @@
 import React from 'react';
 import reactDom from 'react-dom';
-
 import classNames from 'classnames';
 import { Button } from 'ui';
-import { ReactComponent as IconClose } from 'assets/icons/close.svg';
-import { AnimatePresence, motion } from 'framer-motion';
+import { MdOutlineClose as IconClose } from 'react-icons/md';
 import Title from 'components/title';
+import { AnimatePresence, motion } from 'framer-motion';
 export interface IModalProps {
   isOpen?: boolean;
   onClose?: () => void;
