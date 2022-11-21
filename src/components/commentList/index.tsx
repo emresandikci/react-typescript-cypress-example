@@ -1,6 +1,6 @@
 import { Title } from 'components';
 import { useCommentContext } from 'containers/commentsContainer';
-import { useCommentsSelector } from 'store/selectors';
+import { useCommentsSelector } from 'store/selectors/comments';
 import { Button } from 'ui';
 import CommentCard from '../commentCard';
 import './index.css';

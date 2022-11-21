@@ -25,5 +25,5 @@ export default function useGetPosts(
 
   const reFetch = () => dispatch(getPosts());
 
-  return useMemo(() => ({ data, isLoading, error, reFetch: reFetch }), [data]);
+  return useMemo(() => ({ data, isLoading, error, reFetch: reFetch }), [data, error]);
 }

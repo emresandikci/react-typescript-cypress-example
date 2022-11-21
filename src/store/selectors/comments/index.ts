@@ -6,7 +6,7 @@ import { IComment } from 'utils/types/comment';
 const selectComments = (state: RootState) => state.comments.data;
 const filterPureComments = (state: IComment[]) => state?.filter((comment) => !comment.parentId);
 const filterRepliedComments = (state: IComment[]) => state?.filter((comment) => comment.parentId);
-const useCommentsSelector = () =>
+export const useCommentsSelector = () =>
   useSelector(
     createSelector(selectComments, (state) => ({
       comments: filterPureComments(state?.comments as IComment[])?.map((comment) => ({
@@ -20,5 +20,3 @@ const useCommentsSelector = () =>
       totalComments: filterPureComments(state?.comments as IComment[])?.length,
     }))
   );
-
-export default useCommentsSelector;

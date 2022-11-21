@@ -27,5 +27,5 @@ export default function useGetCommentsByPost(
 
   const reFetch = () => dispatch(getCommentsByPost(postId));
 
-  return useMemo(() => ({ data, isLoading, error, reFetch: reFetch }), [data]);
+  return useMemo(() => ({ data, isLoading, error, reFetch: reFetch }), [data, error]);
 }
