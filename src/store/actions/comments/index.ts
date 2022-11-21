@@ -15,9 +15,9 @@ const {
   ADD_COMMENT,
   ADD_COMMENT_SUCCEDED,
   ADD_COMMENT_FAILED,
-  UPDATE_COMMENT,
-  UPDATE_COMMENT_SUCCEDED,
-  UPDATE_COMMENT_FAILED,
+  ADD_TAGS,
+  ADD_TAGS_SUCCEDED,
+  ADD_TAGS_FAILED,
 } = commentTypes;
 
 const BASE_API_URL = process.env.REACT_APP_API_BASE_URL;
@@ -88,7 +88,6 @@ export const addComment =
       });
       const { status, data } = await axios.post<IComment>(`${BASE_API_URL}/comments`, newComment);
       if (status === HTTP_STATUS.CREATED) {
-        store.getState().comments.data?.comments?.push({ ...data, tags: ['test', 'test1'] });
         dispatch({
           type: ADD_COMMENT_SUCCEDED,
           payload: data,
@@ -109,34 +108,34 @@ export const addComment =
     }
   };
 
-export const updateComment =
-  (updatedComment: CommentPayload) =>
+export const addTags =
+  (tags: string[], commentId: IdentityKey) =>
   async (dispatch: AppDispatch<IComment>): Promise<IComment | undefined> => {
     try {
       dispatch({
-        type: UPDATE_COMMENT,
+        type: ADD_TAGS,
       });
-      const { status, data } = await axios.put<IComment>(
-        `${BASE_API_URL}/comments`,
-        updatedComment
+
+      const { status, data } = await axios.patch<IComment>(
+        `${BASE_API_URL}/comments/${commentId}`,
+        { tags: tags.filter((item, index, self) => self.indexOf(item) === index) }
       );
-      if (status === HTTP_STATUS.CREATED) {
-        store.getState().comments.data?.comments?.push({ ...data, tags: ['test', 'test1'] });
+      if (status === HTTP_STATUS.OK) {
         dispatch({
-          type: UPDATE_COMMENT_SUCCEDED,
-          payload: data,
+          type: ADD_TAGS_SUCCEDED,
+          payload: { ...data, id: commentId },
         });
         return Promise.resolve(data);
       } else {
         dispatch({
-          type: UPDATE_COMMENT_FAILED,
+          type: ADD_TAGS_FAILED,
           payload: data,
         });
         return Promise.reject(data);
       }
     } catch (error) {
       dispatch({
-        type: UPDATE_COMMENT_FAILED,
+        type: ADD_TAGS_FAILED,
         payload: error,
       });
     }

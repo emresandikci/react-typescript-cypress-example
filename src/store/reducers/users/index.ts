@@ -1,40 +1,40 @@
 import { AnyAction } from 'redux';
-import { postTypes } from 'store/actionTypes';
+import { userTypes } from 'store/actionTypes';
 import { InitialState } from 'utils/types';
-import { PostState } from 'utils/types/post';
+import { UserState } from 'utils/types/user';
 
-const { GET_POSTS, GET_POSTS_SUCCEDED, GET_POSTS_FAILED } = postTypes;
+const { GET_USERS, GET_USERS_SUCCEDED, GET_USERS_FAILED } = userTypes;
 
-const initialState: InitialState<PostState> = {
+const initialState: InitialState<UserState> = {
   isLoading: false,
   error: null,
   data: {
-    posts: null,
-    post: null,
+    users: null,
+    user: null,
   },
 };
 
-export default function postReducer(
+export default function userReducer(
   state = initialState,
   action: AnyAction
-): InitialState<PostState> {
+): InitialState<UserState> {
   switch (action.type) {
-    case GET_POSTS:
+    case GET_USERS:
       return {
         ...state,
         error: null,
         isLoading: true,
       };
-    case GET_POSTS_SUCCEDED:
+    case GET_USERS_SUCCEDED:
       return {
         ...state,
         data: {
           ...state.data,
-          posts: action.payload,
+          users: action.payload,
         },
         isLoading: false,
       };
-    case GET_POSTS_FAILED:
+    case GET_USERS_FAILED:
       return {
         ...state,
         error: action.payload,
