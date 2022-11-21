@@ -10,6 +10,7 @@
   @import url('ui/loading/index.css');
   @import url('ui/select/index.css');
   @import url('ui/modal/index.css');
+  @import url('ui/popup/index.css');
 }
 
 @layer {

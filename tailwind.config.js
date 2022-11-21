@@ -16,6 +16,7 @@ module.exports = {
         scroller: '100',
         dropdown: '200',
         modal: '1000',
+        popup: '1001',
       },
     },
   },

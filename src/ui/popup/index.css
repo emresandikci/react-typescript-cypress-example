@@ -1,0 +1,15 @@
+.popup-container {
+  @apply flex h-full w-full flex-col items-center justify-center;
+}
+.popup-overlay {
+  @apply fixed top-0 left-0 z-popup h-screen w-screen bg-gray-900 bg-opacity-90;
+}
+.popup-content {
+  @apply h-auto min-h-[120px] w-80;
+}
+.popup-title {
+  @apply text-xl font-semibold;
+}
+.popup-header {
+  @apply mb-4 flex w-full items-center justify-between;
+}
