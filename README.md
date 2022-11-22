@@ -63,7 +63,7 @@ git clone https://github.com/emresandikci/bb-fc-17112022.git && cd bb-fc-1711202
 Please create the **`.env`** file and add below environment key and a variable which shared with you as an API URL
 
 ```
-REACT_APP_API_BASE_URL=
+REACT_APP_API_BASE_URL=https://jsonplaceholder.typicode.com
 ```
 
 after add the above environment key and variable that shared with you, run below script to start development and server.
