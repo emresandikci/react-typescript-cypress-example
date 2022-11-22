@@ -50,12 +50,6 @@ git commit -m "docs(readme): add server link"
 
 #
 
-## Automted Tests (e2e)
-
-Automated test coded with Cypress.
-
-#
-
 ## Start Development
 
 Use below script for clone repository and install dependencies.
@@ -86,11 +80,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\
@@ -98,3 +87,18 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
+
+# Automted Tests (e2e)
+
+Automated test coded with Cypress. Please follow the below instructions to run tests.
+
+For the headless tests run below script
+
+### `yarn test`
+
+If you want to see tests visually then run below script and choose a test from running browser to start test senario
+
+### `yarn test:open`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
