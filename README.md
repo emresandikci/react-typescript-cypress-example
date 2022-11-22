@@ -99,6 +99,3 @@ For the headless tests run below script
 If you want to see tests visually then run below script and choose a test from running browser to start test senario
 
 ### `yarn test:open`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
