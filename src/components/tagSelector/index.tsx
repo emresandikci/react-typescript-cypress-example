@@ -77,6 +77,7 @@ export default function TagSelector({
             </RemoveableTag>
           ))}
           <Input
+            name="tags"
             className="border-none !bg-transparent p-1"
             value={text}
             placeholder={placeholder}
