@@ -18,7 +18,7 @@ If you don't use one of these Code Editor/IDE [please check if your EDITOR/IDE e
 
 # Linter / Commit Messages
 
-While developing this library you should take attention to linter rules, all of your codes and commit messages, because you can't do any development without checking by rules.
+While developing this project, you should take attention to linter rules, all of your codes and commit messages, because you can't do any development without checking by rules.
 
 <span style="color:red;">**Notice:**</span> Before commit to changes, [HuskyJs](https://github.com/typicode/husky) checking these commit messages / linter rules
 
@@ -50,6 +50,12 @@ git commit -m "docs(readme): add server link"
 
 #
 
+## Automted Tests (e2e)
+
+Automated test coded with Cypress.
+
+#
+
 ## Start Development
 
 Use below script for clone repository and install dependencies.
@@ -68,7 +74,7 @@ REACT_APP_API_BASE_URL=
 
 after add the above environment key and variable, run below script to start development and server.
 
-# `Available Scripts to run development server`
+# Available Scripts to run development server
 
 In the project directory, you can run:
 
