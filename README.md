@@ -1,4 +1,4 @@
-# The Project - BB-FC-17112022
+# The Project - react-typescript-cypress-example
 
 ## `Please read this section before starting to development.`
 
@@ -55,7 +55,7 @@ git commit -m "docs(readme): add server link"
 Use below script for clone repository and install dependencies.
 
 ```bash
-git clone https://github.com/emresandikci/bb-fc-17112022.git && cd bb-fc-17112022 && yarn install
+git clone https://github.com/emresandikci/react-typescript-cypress-example.git && cd react-typescript-cypress-example && yarn install
 ```
 
 ## ENVIRONMENT VARIABLES
